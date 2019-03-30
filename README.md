@@ -5,7 +5,7 @@ SatisfactoryMod.Net is based on the work of [`AlternateLife.RageMP.Net`](https:/
 Join the [`Satisfactory Modding server`](https://discord.gg/QzcG9nX) to talk about SatisfactoryModLoader, SatisfactoryMod.Net or Satisfactory Modding in general.
 
 ## Download & Installation
-Not download available yet. You have to build it from source.
+No download available yet. You have to build it from source.
 
 ## Documentation
 No documentation available yet.
