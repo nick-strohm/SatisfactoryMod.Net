@@ -176,29 +176,27 @@ bool ClrHost::createAppDomain() {
 	unsigned int exitCode = 0;
 	auto libraryPath = getAbsolutePath(std::string(PLUGIN_DIR_PATH) + PLUGIN_NAME + ".dll");
 
-	std::cout << LOG_HEADER << "Disabled assembly exeution. Continuing..." << std::endl;
-
-	//try
-	//{
-	//	result = _executeAssembly(
-	//		_runtimeHost,
-	//		_domainId,
-	//		0,
-	//		nullptr,
-	//		libraryPath.c_str(),
-	//		&exitCode
-	//	);
-	//}
-	//catch (const std::exception& e)
-	//{
-	//	std::cout << e.what() << std::endl;
-	//}
-	//
-	//if (result < 0) {
-	//	std::cerr << "[.NET] Unable to execute assembly: 0x" << std::hex << result << std::endl;
-	//
-	//	return false;
-	//}
+	try
+	{
+		result = _executeAssembly(
+			_runtimeHost,
+			_domainId,
+			0,
+			nullptr,
+			libraryPath.c_str(),
+			&exitCode
+		);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	if (result < 0) {
+		std::cerr << "[.NET] Unable to execute assembly: 0x" << std::hex << result << std::endl;
+	
+		return false;
+	}
 
 	return true;
 }
