@@ -2,8 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <OutputPath>G:\Source\Nick Strohm\SatisfactoryMod.Net\x64\$(Configuration)\dotnet\plugins\</OutputPath>
+    <OutputPath>$(SolutionDir)out\dotnet\plugins\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="NLog" Version="4.6.1" />
+  </ItemGroup>
 
 </Project>
