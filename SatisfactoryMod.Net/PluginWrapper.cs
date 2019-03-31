@@ -17,6 +17,8 @@ namespace SatisfactoryMod.Net
         {
             var assembly = typeof(PluginWrapper).Assembly.GetName();
 
+            Console.WriteLine($"Invoked {nameof(PluginWrapper)}.{nameof(PluginMain)} in {assembly.Name} (Version {assembly.Version})");
+
             var plugin = new Plugin();
             plugin.Logger.Log(LogLevel.Info, $"Starting {assembly.Name} version {assembly.Version}.");
 

@@ -33,7 +33,7 @@
 
 #include <coreclr/coreclrhost.h>
 
-#define LOG_HEADER "[SATISFACTORY.NET] "
+#define LOG_HEADER "[.NET] "
 
 typedef void(*MainMethod)();
 

@@ -18,10 +18,10 @@
     <ClInclude Include="ClrHost.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ModEvents.h">
+    <ClInclude Include="ModInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ModInfo.h">
+    <ClInclude Include="dotnet-wrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,10 +29,10 @@
     <ClCompile Include="ClrHost.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ModEvents.cpp">
+    <ClCompile Include="ModInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ModInfo.cpp">
+    <ClCompile Include="dotnet-wrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

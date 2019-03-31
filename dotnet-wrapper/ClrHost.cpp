@@ -143,7 +143,7 @@ bool ClrHost::createAppDomain() {
 		"APP_PATHS",
 		"APP_NI_PATHS",
 		"NATIVE_DLL_SEARCH_DIRECTORIES",
-		//"System.GC.Server",
+		"System.GC.Server",
 		"System.Globalization.Invariant",
 	};
 
@@ -152,7 +152,7 @@ bool ClrHost::createAppDomain() {
 		appPath.c_str(),
 		appPath.c_str(),
 		nativeDllPaths.c_str(),
-		//"true",
+		"true",
 		"true",
 	};
 
@@ -176,21 +176,14 @@ bool ClrHost::createAppDomain() {
 	unsigned int exitCode = 0;
 	auto libraryPath = getAbsolutePath(std::string(PLUGIN_DIR_PATH) + PLUGIN_NAME + ".dll");
 
-	try
-	{
-		result = _executeAssembly(
-			_runtimeHost,
-			_domainId,
-			0,
-			nullptr,
-			libraryPath.c_str(),
-			&exitCode
-		);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	result = _executeAssembly(
+		_runtimeHost,
+		_domainId,
+		0,
+		nullptr,
+		libraryPath.c_str(),
+		&exitCode
+	);
 	
 	if (result < 0) {
 		std::cerr << "[.NET] Unable to execute assembly: 0x" << std::hex << result << std::endl;
@@ -259,10 +252,10 @@ bool ClrHost::getDelegate(std::string methodName, void **callback) {
 }
 
 std::string ClrHost::getAbsolutePath(std::string relativePath) {
-	std::filesystem::path path = relativePath;
-	std::filesystem::path absolutePath = std::filesystem::absolute(path);
+	char absolutePath[MAX_PATH];
+	GetFullPathName(relativePath.c_str(), MAX_PATH, absolutePath, NULL);
 
-	return absolutePath.u8string();
+	return std::string(absolutePath);
 }
 
 std::string ClrHost::getFilenameWithoutExtension(std::string filename) {
