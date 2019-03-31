@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "SatisfactoryMod.Net": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Epic Games\\SatisfactoryEarlyAccess\\FactoryGame\\Binaries\\Win64\\FactoryGame-Win64-Shipping.exe",
+      "workingDirectory": "D:\\Epic Games\\SatisfactoryEarlyAccess\\FactoryGame\\Binaries\\Win64"
+    }
+  }
+}
