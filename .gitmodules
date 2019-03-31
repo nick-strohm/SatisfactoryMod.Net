@@ -1,0 +1,4 @@
+[submodule "dotnet-wrapper/thirdparty/SatisfactoryModLoader"]
+	path = dotnet-wrapper/thirdparty/SatisfactoryModLoader
+	url = https://github.com/nick-strohm/SatisfactoryModLoader.git
+	branch = development
