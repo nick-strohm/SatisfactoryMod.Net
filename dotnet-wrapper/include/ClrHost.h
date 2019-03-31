@@ -26,46 +26,50 @@
  * SOFTWARE.
  */
 
-#pragma once
+#ifndef BASE_MOD_CLRHOST_H
+#define BASE_MOD_CLRHOST_H
+
 #include <windows.h>
 #include <string>
 #include <set>
 
-#include <coreclr/coreclrhost.h>
+#include "coreclr/coreclrhost.h"
 
 #define LOG_HEADER "[.NET] "
 
 typedef void(*MainMethod)();
 
 class ClrHost {
-	HMODULE _coreClrLib;
+    HMODULE _coreClrLib;
 
-	coreclr_initialize_ptr _initializeCoreCLR;
-	coreclr_shutdown_2_ptr _shutdownCoreCLR;
-	coreclr_create_delegate_ptr _createDelegate;
-	coreclr_execute_assembly_ptr _executeAssembly;
+    coreclr_initialize_ptr _initializeCoreCLR;
+    coreclr_shutdown_2_ptr _shutdownCoreCLR;
+    coreclr_create_delegate_ptr _createDelegate;
+    coreclr_execute_assembly_ptr _executeAssembly;
 
-	void *_runtimeHost;
-	unsigned int _domainId;
+    void *_runtimeHost;
+    unsigned int _domainId;
 
-	MainMethod _mainCallback;
+    MainMethod _mainCallback;
 
 public:
-	ClrHost();
-	virtual ~ClrHost();
+    ClrHost();
+    virtual ~ClrHost();
 
-	bool load();
-	void unload();
+    bool load();
+    void unload();
 
-	MainMethod mainCallback() const;
+    MainMethod mainCallback() const;
 
 private:
-	bool loadCoreClr();
-	bool createAppDomain();
+    bool loadCoreClr();
+    bool createAppDomain();
 
-	std::set<std::string> getTrustedAssemblies();
-	bool getDelegate(std::string methodName, void **callback);
+    std::set<std::string> getTrustedAssemblies();
+    bool getDelegate(std::string methodName, void **callback);
 
-	std::string getAbsolutePath(std::string relativePath);
-	std::string getFilenameWithoutExtension(std::string filename);
+    std::string getAbsolutePath(std::string relativePath);
+    std::string getFilenameWithoutExtension(std::string filename);
 };
+
+#endif //BASE_MOD_CLRHOST_H
