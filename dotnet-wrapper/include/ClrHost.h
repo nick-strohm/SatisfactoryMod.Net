@@ -29,7 +29,7 @@
 #ifndef BASE_MOD_CLRHOST_H
 #define BASE_MOD_CLRHOST_H
 
-#include <windows.h>
+#include <Windows.h>
 #include <string>
 #include <set>
 

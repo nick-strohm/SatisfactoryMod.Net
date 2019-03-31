@@ -14,3 +14,5 @@ if(MSVC)
 endif(MSVC)
 
 add_subdirectory(src)
+
+add_subdirectory(thirdparty/SatisfactoryModLoader/satisfactory-mod-loader)
